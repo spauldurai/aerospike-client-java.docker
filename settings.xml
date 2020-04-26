@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+        <mirrors>
+                <mirror>
+                        <id>central</id>
+                         <mirrorOf>*,!public</mirrorOf>
+                        <url>https://repo.maven.apache.org/maven2</url>
+                </mirror>
+        </mirrors>
+
+        <profiles>
+                <profile>
+                        <id>global</id>
+                        <repositories>
+								<repository>
+									<snapshots>
+										<enabled>false</enabled>
+									</snapshots>
+									<id>central</id>
+									<name>Central Repository</name>
+									<url>https://repo.maven.apache.org/maven2</url>
+								</repository>
+						</repositories>
+						<pluginRepositories>
+								<pluginRepository>
+									<releases>
+										<updatePolicy>never</updatePolicy>
+									</releases>
+									<snapshots>
+										<enabled>false</enabled>
+									</snapshots>
+									<id>central</id>
+									<name>Central Repository</name>
+									<url>https://repo.maven.apache.org/maven2</url>
+								</pluginRepository>
+						</pluginRepositories>
+
+                </profile>
+        </profiles>
+
+        <activeProfiles>
+                <activeProfile>global</activeProfile>
+        </activeProfiles>
+
+        <pluginGroups>
+                <pluginGroup>org.mortbay.jetty</pluginGroup>
+        </pluginGroups>
+</settings>

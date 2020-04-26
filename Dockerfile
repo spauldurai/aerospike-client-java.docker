@@ -1,5 +1,5 @@
 #
-# Aerospike Java Client 
+# Aerospike Java Client
 #
 # http://github.com/volmarl/aerospike-client-java.docker
 #
@@ -18,9 +18,15 @@ RUN \
   apt-get update -y \
   && apt-get install -y python wget logrotate ca-certificates python-dev python-setuptools python-argparse python-bcrypt openssl python-openssl  
 
+RUN mkdir -p /root/.m2/
+
+RUN apt-get update
+RUN apt-get install -y maven 
+ADD settings.xml /root/.m2/settings.xml
+
 COPY as_java_client.sh /tmp/as_java_client.sh
 
-RUN /tmp/as_java_client.sh  
+RUN /tmp/as_java_client.sh
 
 
 # Wrapper script entrypoint

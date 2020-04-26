@@ -18,14 +18,17 @@ cd $CURRENT_HOME
 echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" >> .bashrc
 echo "export JRE_HOME=/usr/lib/jvmjava-1.8.0-openjdk-amd64/jre" >> .bashrc
 echo "export PATH=$PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin" >> .bashrc
-echo "export PATH=${CURRENT_HOME}/apache-maven-3.3.9/bin:$PATH" >> .bashrc
-wget 'ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz'
-tar xzf apache-maven-3.3.9-bin.tar.gz
-cd apache-maven-3.3.9
-export PATH=${CURRENT_HOME}/apache-maven-3.3.9/bin:$PATH
+echo "export PATH=${CURRENT_HOME}/apache-maven-3.6.3/bin:$PATH" >> .bashrc
+#wget 'ftp://mirror.reverse.net/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz'
+wget 'https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz' --no-check-certificate
+tar xzf apache-maven-3.6.3-bin.tar.gz
+cd apache-maven-3.6.3
+export PATH=${CURRENT_HOME}/apache-maven-3.6.3/bin:$PATH
+
 mvn --version
 cd ${CURRENT_HOME}
-wget -O java.tgz 'http://aerospike.com/download/client/java/latest/artifact/tgz'
+#wget -O java.tgz 'http://aerospike.com/download/client/java/latest/artifact/tgz'
+wget -O java.tgz 'https://aerospike.com/download/client/java/latest/artifact/tgz' --no-check-certificate
 tar xzf java.tgz
 ASVERSION=`ls -rd aerospike-client-java-*|head`
 cd $ASVERSION
